@@ -56,11 +56,13 @@ In order for you to test the HA functionality, a database restore _[RestoreDB](h
 
 All databases are automatically added to the availability group, including all users (including the _AdventureWorks2019_ database you just restored) and system databases like _master_ and _msdb_. This capability provides a single-system view across the availability group replicas.
 
-- In addition to restoring the _AdventureWorks2019_ database, the script will also create a new text file and a desktop shortcut named _Endpoints_ that includes both the primary and the secondary SQL endpoints.
+As part of the scenario automation, a new _SQLMI Endpoints_ file desktop shortcut that includes both the primary and the secondary SQL endpoints.
 
-    ![Endpoints desktop shortcut](./07.png)
+> **Note: The secondary SQL Managed Instance external endpoint will only be available if the bootstrap scenario was deployed with SQL MI in an HA fashion.**
 
-    ![Endpoints text file](./08.png)
+![Endpoints desktop shortcut](./07.png)
+
+![Endpoints text file](./08.png)
 
 - Open Microsoft SQL Server Management Studio (SSMS) which is installed automatically for you as part of the [bootstrap Jumpstart scenario](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/) and use the primary endpoint IP address and login to the primary DB instance.
 

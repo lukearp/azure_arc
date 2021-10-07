@@ -56,7 +56,7 @@ In order for you to test the HA functionality and as part of the bootstrap Jumps
 
 All databases are automatically added to the availability group, including all users (including the _AdventureWorks2019_ database you just restored) and system databases like _master_ and _msdb_. This capability provides a single-system view across the availability group replicas.
 
-As part of the scenario automation, a new _SQLMI Endpoints_ desktop shortcut that includes both the primary and the secondary SQL endpoints.
+As part of the scenario automation, a new _SQLMI Endpoints_ file desktop shortcut that includes both the primary and the secondary SQL endpoints.
 
 > **Note: The secondary SQL Managed Instance external endpoint will only be available if the bootstrap scenario was deployed with SQL MI in an HA fashion.**
 
