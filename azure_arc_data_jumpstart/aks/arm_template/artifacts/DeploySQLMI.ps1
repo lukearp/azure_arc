@@ -84,6 +84,12 @@ $payload = '{\"spec\":{\"ports\":[{\"name\":\"port-mssql-tds\",\"port\":11433,\"
 kubectl patch svc jumpstart-sql-external-svc -n arc --type merge --patch $payload
 Start-Sleep 5 # To allow the CRD to update
 
+$secondaryEndpoint = kubectl get sqlmanagedinstances jumpstart-sql -n arc -o=jsonpath='{.status.secondaryEndpoint}'
+if ($secondaryEndpoint){
+    kubectl patch svc jumpstart-sql-secondary-external-svc -n arc --type merge --patch $payload
+    Start-Sleep 5 # To allow the CRD to update
+}
+
 # Creating Azure Data Studio settings for SQL Managed Instance connection
 Write-Host ""
 Write-Host "Creating Azure Data Studio settings for SQL Managed Instance connection"
