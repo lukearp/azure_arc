@@ -8,14 +8,14 @@ $Endpoints = "C:\ArcBox\SQLMIEndpoints.txt"
 Add-Content $Endpoints "Primary SQL Managed Instance external endpoint:"
 $primaryEndpoint = kubectl get sqlmanagedinstances jumpstart-sql -n arc -o=jsonpath='{.status.primaryEndpoint}'
 if ($primaryEndpoint) {
-    $primaryEndpoint = $primaryEndpoint.Substring(0, $primaryEndpoint.IndexOf(',')) | Add-Content $Endpoints
+    $primaryEndpoint = $primaryEndpoint.Substring(0, $primaryEndpoint.IndexOf(','))+":11433" | Add-Content $Endpoints
 }
 Add-Content $Endpoints ""
 
-Add-Content $Endpoints "Secondary SQL Managed Instance external endpoint:"
 $secondaryEndpoint = kubectl get sqlmanagedinstances jumpstart-sql -n arc -o=jsonpath='{.status.secondaryEndpoint}'
 if ($secondaryEndpoint) {
-    $secondaryEndpoint = $secondaryEndpoint.Substring(0, $secondaryEndpoint.IndexOf(',')) | Add-Content $Endpoints
+    Add-Content $Endpoints "Secondary SQL Managed Instance external endpoint:"
+    $secondaryEndpoint = $secondaryEndpoint.Substring(0, $secondaryEndpoint.IndexOf(','))+":11433" | Add-Content $Endpoints
 }
 
 
