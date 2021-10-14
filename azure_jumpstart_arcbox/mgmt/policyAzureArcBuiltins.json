@@ -52,17 +52,6 @@
             }
         },
         {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(variables('policyNameForLinuxDeployLogAnalytics'), resourceGroup().id)]",
-            "dependsOn": [ "[variables('policyNameForLinuxDeployLogAnalytics')]" ],
-            "apiVersion": "2020-04-01-preview",
-            "properties": {
-                "roleDefinitionId": "[variables('logAnalyticsContributorRoleDefinition')]",
-                "principalId": "[reference(resourceId('Microsoft.Authorization/policyAssignments', variables('policyNameForLinuxDeployLogAnalytics')),'2019-09-01', 'full').identity.principalId]",
-                "principalType": "ServicePrincipal"
-            }
-        },
-        {
             "type": "Microsoft.Authorization/policyAssignments",
             "name": "[variables('policyNameForWindowsDeployLogAnalytics')]",
             "apiVersion": "2019-09-01",
@@ -78,17 +67,6 @@
                         "value": "[variables('logAnalyticsResource')]"
                     }
                 }
-            }
-        },
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(variables('policyNameForWindowsDeployLogAnalytics'), resourceGroup().id)]",
-            "dependsOn": [ "[variables('policyNameForWindowsDeployLogAnalytics')]" ],
-            "apiVersion": "2020-04-01-preview",
-            "properties": {
-                "roleDefinitionId": "[variables('logAnalyticsContributorRoleDefinition')]",
-                "principalId": "[reference(resourceId('Microsoft.Authorization/policyAssignments', variables('policyNameForWindowsDeployLogAnalytics')),'2019-09-01', 'full').identity.principalId]",
-                "principalType": "ServicePrincipal"
             }
         },
         {
@@ -108,17 +86,6 @@
             }
         },
         {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(variables('policyNameForLinuxDeployDependencyAgent'), resourceGroup().id)]",
-            "dependsOn": [ "[variables('policyNameForLinuxDeployDependencyAgent')]" ],
-            "apiVersion": "2020-04-01-preview",
-            "properties": {
-                "roleDefinitionId": "[variables('logAnalyticsContributorRoleDefinition')]",
-                "principalId": "[reference(resourceId('Microsoft.Authorization/policyAssignments', variables('policyNameForLinuxDeployDependencyAgent')),'2019-09-01', 'full').identity.principalId]",
-                "principalType": "ServicePrincipal"
-            }
-        },
-        {
             "type": "Microsoft.Authorization/policyAssignments",
             "name": "[variables('policyNameForWindowsDeployDependencyAgent')]",
             "apiVersion": "2019-09-01",
@@ -132,17 +99,6 @@
                 "parameters": {
 
                 }
-            }
-        },
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(variables('policyNameForWindowsDeployDependencyAgent'), resourceGroup().id)]",
-            "dependsOn": [ "[variables('policyNameForWindowsDeployDependencyAgent')]" ],
-            "apiVersion": "2020-04-01-preview",
-            "properties": {
-                "roleDefinitionId": "[variables('logAnalyticsContributorRoleDefinition')]",
-                "principalId": "[reference(resourceId('Microsoft.Authorization/policyAssignments', variables('policyNameForWindowsDeployDependencyAgent')),'2019-09-01', 'full').identity.principalId]",
-                "principalType": "ServicePrincipal"
             }
         },
         {
@@ -167,17 +123,6 @@
             }
         },
         {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(variables('policyNameForAddResourceTag'), resourceGroup().id)]",
-            "dependsOn": [ "[variables('policyNameForAddResourceTag')]" ],
-            "apiVersion": "2020-04-01-preview",
-            "properties": {
-                "roleDefinitionId": "[variables('tagContributorRoleDefinition')]",
-                "principalId": "[reference(resourceId('Microsoft.Authorization/policyAssignments', variables('policyNameForAddResourceTag')),'2019-09-01', 'full').identity.principalId]",
-                "principalType": "ServicePrincipal"
-            }
-        },
-        {
             "type": "Microsoft.Authorization/policyAssignments",
             "name": "[variables('policyNameForEnableAzureDefenderKubernetes')]",
             "apiVersion": "2019-09-01",
@@ -191,17 +136,6 @@
                 "parameters": {
 
                 }
-            }
-        },
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(variables('policyNameForEnableAzureDefenderKubernetes'), resourceGroup().id)]",
-            "dependsOn": [ "[variables('policyNameForEnableAzureDefenderKubernetes')]" ],
-            "apiVersion": "2020-04-01-preview",
-            "properties": {
-                "roleDefinitionId": "[variables('logAnalyticsContributorRoleDefinition')]",
-                "principalId": "[reference(resourceId('Microsoft.Authorization/policyAssignments', variables('policyNameForEnableAzureDefenderKubernetes')),'2019-09-01', 'full').identity.principalId]",
-                "principalType": "ServicePrincipal"
             }
         }
     ]
