@@ -29,6 +29,7 @@ param networkSecurityGroupName string = 'ArcBox-NSG'
 
 @description('Name of the Bastion Network Security Group')
 param bastionNetworkSecurityGroupName string = 'ArcBox-Bastion-NSG'
+param resourceTags object = {}
 
 var updates = {
   name: 'Updates(${workspaceName})'

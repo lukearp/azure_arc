@@ -44,6 +44,8 @@ param deployBastion bool = false
 @description('User github account where they have forked https://github.com/microsoft/azure-arc-jumpstart-apps')
 param githubUser string = 'microsoft'
 
+param resourceTags object = {}
+
 var templateBaseUrl = 'https://raw.githubusercontent.com/${githubAccount}/azure_arc/${githubBranch}/azure_jumpstart_arcbox/'
 
 var location = resourceGroup().location
@@ -63,6 +65,7 @@ module ubuntuCAPIDeployment 'kubernetes/ubuntuCapi.bicep' = if (flavor == 'Full'
     azureLocation: location
     flavor: flavor
     vmSize: 'Standard_B2ms' 
+    resourceTags: resourceTags
   }
 }
 
@@ -80,6 +83,7 @@ module ubuntuRancherDeployment 'kubernetes/ubuntuRancher.bicep' = if (flavor == 
     deployBastion: deployBastion
     azureLocation: location
     vmSize: 'Standard_B2ms' 
+    resourceTags: resourceTags 
   }
 }
 
@@ -99,6 +103,7 @@ module clientVmDeployment 'clientVm/clientVm.bicep' = {
     deployBastion: deployBastion
     githubUser: githubUser
     location: location 
+    resourceTags: resourceTags 
   }
 }
 
@@ -116,5 +121,6 @@ module mgmtArtifactsAndPolicyDeployment 'mgmt/mgmtArtifacts.bicep' = {
     flavor: flavor
     deployBastion: deployBastion
     location: location 
+    resourceTags: resourceTags 
   }
 }
