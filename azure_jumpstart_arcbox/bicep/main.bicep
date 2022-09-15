@@ -62,6 +62,7 @@ module ubuntuCAPIDeployment 'kubernetes/ubuntuCapi.bicep' = if (flavor == 'Full'
     deployBastion: deployBastion
     azureLocation: location
     flavor: flavor
+    vmSize: 'Standard_B2ms' 
   }
 }
 
@@ -78,6 +79,7 @@ module ubuntuRancherDeployment 'kubernetes/ubuntuRancher.bicep' = if (flavor == 
     subnetId: mgmtArtifactsAndPolicyDeployment.outputs.subnetId
     deployBastion: deployBastion
     azureLocation: location
+    vmSize: 'Standard_B2ms' 
   }
 }
 
@@ -96,7 +98,7 @@ module clientVmDeployment 'clientVm/clientVm.bicep' = {
     subnetId: mgmtArtifactsAndPolicyDeployment.outputs.subnetId
     deployBastion: deployBastion
     githubUser: githubUser
-    location: location
+    location: location 
   }
 }
 
@@ -113,6 +115,6 @@ module mgmtArtifactsAndPolicyDeployment 'mgmt/mgmtArtifacts.bicep' = {
     workspaceName: logAnalyticsWorkspaceName
     flavor: flavor
     deployBastion: deployBastion
-    location: location
+    location: location 
   }
 }

@@ -18,16 +18,22 @@
             "value": "arcdemo"
         },
         "windowsAdminPassword": {
-            "value": "<your windows admin password>"
+            "value": "Windows2P@ss"
         },
         "logAnalyticsWorkspaceName": {
-            "value": "<your unique Log Analytics workspace name>"
+            "value": "lukearp-arc-workspace"
         },
         "flavor": {
-            "value":  "Full"
+            "value":  "DevOps"
         },
         "deployBastion": {
             "value": false
+        },
+        "githubAccount": {
+            "value": "lukearp"
+        },
+        "githubBranch": {
+            "value": "main"
         }
     }
 }
